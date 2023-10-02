@@ -3,9 +3,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@envy/app-envy": [
-        "apps/app-envy/src"
-      ],
       "@envy/app-playground": [
         "apps/app-playground/src"
       ],
@@ -15,116 +12,14 @@
       "@envy/lib-client": [
         "libs/lib-client/src"
       ],
-      "@envy/lib-stripe": [
-        "libs/lib-stripe/src"
-      ],
-      "@envy/lib-web": [
-        "libs/lib-web/src"
-      ],
-      "@envy/svc-bookmark": [
-        "services/svc-bookmark/src"
-      ],
-      "@envy/svc-comment": [
-        "services/svc-comment/src"
-      ],
-      "@envy/svc-comment-reaction": [
-        "services/svc-comment-reaction/src"
-      ],
-      "@envy/svc-form": [
-        "services/svc-form/src"
-      ],
-      "@envy/svc-gateway": [
-        "services/svc-gateway/src"
-      ],
-      "@envy/svc-media": [
-        "services/svc-media/src"
-      ],
-      "@envy/svc-message": [
-        "services/svc-message/src"
-      ],
-      "@envy/svc-message-reaction": [
-        "services/svc-message-reaction/src"
-      ],
-      "@envy/svc-notification": [
-        "services/svc-notification/src"
-      ],
-      "@envy/svc-payment-attempt": [
-        "services/svc-payment-attempt/src"
-      ],
-      "@envy/svc-payment-invoice": [
-        "services/svc-payment-invoice/src"
-      ],
-      "@envy/svc-payment-method": [
-        "services/svc-payment-method/src"
-      ],
-      "@envy/svc-payment-receipt": [
-        "services/svc-payment-receipt/src"
-      ],
-      "@envy/svc-payment-recurring-invoice": [
-        "services/svc-payment-recurring-invoice/src"
-      ],
-      "@envy/svc-payment-transactions": [
-        "services/svc-payment-transactions/src"
-      ],
-      "@envy/svc-post": [
-        "services/svc-post/src"
-      ],
-      "@envy/svc-post-comment": [
-        "services/svc-post-comment/src"
-      ],
-      "@envy/svc-post-privacy": [
-        "services/svc-post-privacy/src"
-      ],
-      "@envy/svc-post-reaction": [
-        "services/svc-post-reaction/src"
-      ],
-      "@envy/svc-privacy": [
-        "services/svc-privacy/src"
-      ],
       "@envy/svc-profile": [
         "services/svc-profile/src"
-      ],
-      "@envy/svc-profile-subscription-group": [
-        "services/svc-profile-subscription-group/src"
-      ],
-      "@envy/svc-profile-subscription-group-membership": [
-        "services/svc-profile-subscription-group-membership/src"
-      ],
-      "@envy/svc-profile-user-bridge": [
-        "services/svc-profile-user-bridge/src"
-      ],
-      "@envy/svc-reaction": [
-        "services/svc-reaction/src"
-      ],
-      "@envy/svc-report": [
-        "services/svc-report/src"
       ],
       "@envy/svc-role": [
         "services/svc-role/src"
       ],
       "@envy/svc-session": [
         "services/svc-session/src"
-      ],
-      "@envy/svc-stripe-customer-bridge": [
-        "services/svc-stripe-customer-bridge/src"
-      ],
-      "@envy/svc-stripe-payment-invoice-bridge": [
-        "services/svc-stripe-payment-invoice-bridge/src"
-      ],
-      "@envy/svc-stripe-payment-method-bridge": [
-        "services/svc-stripe-payment-method-bridge/src"
-      ],
-      "@envy/svc-stripe-webhook": [
-        "services/svc-stripe-webhook/src"
-      ],
-      "@envy/svc-subscription-group": [
-        "services/svc-subscription-group/src"
-      ],
-      "@envy/svc-tag": [
-        "services/svc-tag/src"
-      ],
-      "@envy/svc-tip": [
-        "services/svc-tip/src"
       ],
       "@envy/svc-user": [
         "services/svc-user/src"
@@ -134,6 +29,7 @@
   },
   "include": [
     "apps",
+    "features",
     "libs",
     "services"
   ]
