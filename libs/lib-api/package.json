@@ -1,0 +1,52 @@
+{
+  "name": "@envy/lib-api",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "pnpm run clean && pnpm run compile",
+    "clean": "rimraf -rf ./dist && rimraf -rf ./build",
+    "compile": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "pg": "8.10.0",
+    "@golevelup/nestjs-rabbitmq": "3.6.0",
+    "body-parser": "1.20.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "*",
+    "@types/lodash": "*",
+    "@types/bcryptjs": "*",
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/graphql": "*",
+    "@nestjs/apollo": "*",
+    "@nestjs/typeorm": "*",
+    "@nestjs/platform-express": "*",
+    "@apollo/server": "*",
+    "typeorm": "*",
+    "@nestjs/microservices": "*",
+    "@nestjs/jwt": "*",
+    "express": "*",
+    "@types/express": "*",
+    "@envy/lib-client": "workspace:*",
+    "rxjs": "*",
+    "lodash": "*"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/graphql": "*",
+    "@nestjs/apollo": "*",
+    "@nestjs/typeorm": "*",
+    "@nestjs/jwt": "*",
+    "@nestjs/platform-express": "*",
+    "@apollo/server": "*",
+    "typeorm": "*",
+    "express": "*",
+    "@envy/lib-client": "workspace:*",
+    "rxjs": "*",
+    "spdy": "*",
+    "lodash": "*"
+  }
+}

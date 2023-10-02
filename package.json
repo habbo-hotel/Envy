@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "workspaces": [
+    "apps/**/*",
+    "libs/**/*",
+    "services/**/*"
+  ],
+  "scripts": {
+    "fix": "gts fix",
+    "build": "lerna run build",
+    "purge": "lerna exec -- rm -rf node_modules && lerna exec -- rm -rf build && lerna exec -- rm -rf dist && rm -rf yarn.lock && rm -rf node_modules && rm -rf yarn.lock",
+    "dev:start": "pm2 start process.json && pnpm run dev:logs",
+    "dev:logs": "pm2 logs",
+    "dev:restart": "pnpm run dev:stop && pnpm run dev:start",
+    "dev:stop": "pm2 stop all && pm2 delete all",
+    "env:copy": "cd services; for d in */; do cp ../.env \"$d\"; done"
+  },
+  "devDependencies": {
+    "@types/node": "18.16.0",
+    "@typescript-eslint/eslint-plugin": "5.59.0",
+    "eslint-config-react-app": "7.0.1",
+    "eslint-plugin-flowtype": "8.0.3",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "gts": "3.1.1",
+    "lerna": "6.6.1",
+    "tsconfig-paths-webpack-plugin": "4.0.1",
+    "typescript": "5.0.4",
+    "rimraf": "5.0.0",
+    "pm2": "5.3.0"
+  },
+  "name": "envy",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

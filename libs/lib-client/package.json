@@ -1,0 +1,26 @@
+{
+  "name": "@envy/lib-client",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "pnpm run clean && pnpm run compile",
+    "clean": "rimraf -rf ./dist && rimraf -rf ./build",
+    "compile": "tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/microservices": "*",
+    "@nestjs/graphql": "*",
+    "rxjs": "*",
+    "nats": "*"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/microservices": "*",
+    "@nestjs/graphql": "*",
+    "rxjs": "*",
+    "nats": "*"
+  }
+}
