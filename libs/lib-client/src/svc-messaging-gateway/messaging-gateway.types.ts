@@ -19,3 +19,19 @@ export enum MessagingInternalEvent {
   MY_ROOMS_SEARCH = 2606,
   OPEN_FLAT_CONNECTION = 3056,
 }
+
+export enum MessagingExternalEvent {}
+
+export interface MessagingGatewaySendMessageEventRequest<D> {
+  event: MessagingExternalEvent;
+  data: D;
+}
+
+export interface MessagingGatewaySendMessageEventResponse {
+  success: boolean;
+}
+
+export interface MessagingGatewayMessageReceivedEvent<D> {
+  event: MessagingInternalEvent;
+  data: D;
+}
