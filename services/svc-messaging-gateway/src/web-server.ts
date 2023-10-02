@@ -1,11 +1,13 @@
 import 'dotenv/config';
-import {dynamicServiceBootstrap} from '@envy/lib-api';
-import {SVC_GATEWAY_NAME, SVC_GATEWAY_WEB_SERVER_PORT} from '@envy/lib-client';
+import {NestFactory} from '@nestjs/core';
+import {WebSocketAdapter} from './websocket.adapter';
+import {SVC_MESSAGING_GATEWAY_PORT} from '@envy/lib-client';
 import {MessagingGatewayModule} from './messaging-gateway.module';
 
-dynamicServiceBootstrap(
-  SVC_GATEWAY_NAME,
-  MessagingGatewayModule,
-  SVC_GATEWAY_WEB_SERVER_PORT,
-  'gateway'
-);
+async function bootstrap() {
+  const app = await NestFactory.create(MessagingGatewayModule);
+  app.useWebSocketAdapter(new WebSocketAdapter(app));
+  await app.listen(SVC_MESSAGING_GATEWAY_PORT);
+}
+
+bootstrap();

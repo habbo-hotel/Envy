@@ -1,6 +1,7 @@
 {
   "packages": [
     "apps/*",
+    "features/**/*",
     "libs/**/*",
     "services/**/*"
   ],
