@@ -40,4 +40,4 @@ import {
     }),
   ],
 })
-export class GatewayModule {}
+export class GraphqlGatewayModule {}

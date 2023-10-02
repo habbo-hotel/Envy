@@ -1,4 +1,5 @@
-export * from './svc-gateway/gateway.const';
+export * from './svc-graphql-gateway/graphql-gateway.const';
+export * from './svc-messaging-gateway/messaging-gateway.const';
 export * from './svc-profile/profile-client.service';
 export * from './svc-profile/profile-client.types';
 export * from './svc-profile/profile.const';

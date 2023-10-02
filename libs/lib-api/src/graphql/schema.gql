@@ -47,4 +47,7 @@ input SessionCreateInput {
   email: String!
   password: String!
   profileID: Float
+}tring!
+  newPassword: String!
+  newPasswordAgain: String!
 }
