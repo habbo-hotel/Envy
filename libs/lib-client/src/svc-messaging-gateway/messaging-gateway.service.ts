@@ -31,6 +31,6 @@ export class MessagingGatewayClientService {
   async _onMessageReceived<D>(
     input: MessagingGatewayMessageReceivedEvent<D>
   ): Promise<void> {
-    await this.client.send(SVC_MESSAGING_GATEWAY_ON_MESSAGE_RECEIVED, input);
+    await this.client.emit(SVC_MESSAGING_GATEWAY_ON_MESSAGE_RECEIVED, input);
   }
 }

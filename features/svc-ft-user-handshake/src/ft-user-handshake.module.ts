@@ -4,6 +4,6 @@ import {FtUserHandshakeListener} from './ft-user-handshake.listener';
 
 @Module({
   imports: [MessagingGatewayClientModule],
-  providers: [FtUserHandshakeListener],
+  controllers: [FtUserHandshakeListener],
 })
 export class FtUserHandshakeModule {}

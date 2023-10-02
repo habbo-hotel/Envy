@@ -54,8 +54,8 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
     const header = parsedBuffer.readShort();
     parsedBuffer.reset();
     const data = parsedBuffer.readBytes(length).toString('utf8');
-    // @ts-ignore
     const matchingInternalEvent: MessagingInternalEvent =
+      // @ts-ignore
       MessagingInternalEvent[MessagingInternalEvent[header]];
     if (!matchingInternalEvent) {
       throw new Error(`${header} is not a supported packet`);
