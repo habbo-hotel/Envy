@@ -1,19 +1,19 @@
 import * as WebSocket from 'ws';
 import ByteBuffer from 'bytebuffer';
-import {mergeMap, filter} from 'rxjs/operators';
-import {Observable, fromEvent, EMPTY} from 'rxjs';
-import {MessageMappingProperties} from '@nestjs/websockets';
+import { mergeMap, filter } from 'rxjs/operators';
+import { Observable, fromEvent, EMPTY } from 'rxjs';
+import { MessageMappingProperties } from '@nestjs/websockets';
 import {
   WebSocketAdapter as BaseWebSocketAdapter,
   INestApplicationContext,
 } from '@nestjs/common';
-import {MessagingInternalEvent} from '@envy/lib-client';
+import { MessagingInternalEvent } from '@envy/lib-client';
 
 export class WebSocketAdapter implements BaseWebSocketAdapter {
-  constructor(private app: INestApplicationContext) {}
+  constructor(private app: INestApplicationContext) { }
 
   create(port: number, options: any = {}): any {
-    return new WebSocket.Server({port, ...options});
+    return new WebSocket.Server({ port, ...options });
   }
 
   bindClientConnect(server: any, callback: Function) {
@@ -43,16 +43,17 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
     const header = parsedBuffer.readShort();
     parsedBuffer.reset();
     const data = parsedBuffer.readBytes(length).toString('utf8');
-    const matchingInternalEvent = MessagingInternalEvent[header];
-    console.log(matchingInternalEvent);
-    const message = buffer.data.toString();
+    const matchingInternalEvent = MessagingInternalEvent[MessagingInternalEvent[header] as any];
+    if (!matchingInternalEvent) {
+      throw new Error(`${header} is not a supported packet`);
+    }
     const messageHandler = handlers.find(
-      handler => handler.message === message.event
+      handler => handler.message === matchingInternalEvent
     );
     if (!messageHandler) {
       return EMPTY;
     }
-    return messageHandler.callback(message.data).map((_: any) => _.callback());
+    return process(messageHandler.callback(data));
   }
 
   close(server: any) {

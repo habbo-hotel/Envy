@@ -1,4 +1,5 @@
 export enum MessagingInternalEvent {
+  PONG_EVENT = 2596,
   VERSION_CHECK = 4000,
   INIT_HANDSHAKE = 1525,
   COMPLETE_HANDSHAKE = 3557,
