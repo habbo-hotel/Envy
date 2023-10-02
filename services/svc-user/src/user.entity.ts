@@ -21,6 +21,9 @@ export class UserEntity {
   @Column({name: 'role_id'})
   roleID!: number;
 
+  @Column({name: 'sso_ticket', nullable: true})
+  ssoTicket?: string;
+
   @Column({name: 'favorite_profile_id', nullable: true})
   favoriteProfileID?: number;
 

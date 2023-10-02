@@ -54,6 +54,7 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
     const header = parsedBuffer.readShort();
     parsedBuffer.reset();
     const data = parsedBuffer.readBytes(length).toString('utf8');
+    console.log(header);
     const matchingInternalEvent: MessagingInternalEvent =
       // @ts-ignore
       MessagingInternalEvent[MessagingInternalEvent[header]];

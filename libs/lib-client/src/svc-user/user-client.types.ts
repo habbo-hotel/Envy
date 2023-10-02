@@ -8,6 +8,7 @@ export interface UserWire {
 export interface UserFindOneInput {
   id?: number;
   email?: string;
+  ssoTicket?: string;
 }
 
 export type UserFindOneResponse = UserWire;
