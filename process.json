@@ -1,17 +1,6 @@
 {
   "apps": [
     {
-      "name": "svc-graphql-gateway",
-      "cwd": "./services/svc-graphql-gateway",
-      "script": "pnpm",
-      "args": "run web-server:start",
-      "watch": [
-        "src",
-        "../**/src"
-      ],
-      "watch_delay": 1000
-    },
-    {
       "name": "svc-messaging-gateway",
       "cwd": "./services/svc-messaging-gateway",
       "script": "pnpm",

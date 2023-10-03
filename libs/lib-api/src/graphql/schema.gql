@@ -3,44 +3,48 @@
 # ------------------------------------------------------
 
 type ProfileModel {
+  id: Float!
+}
+
+type UserModel {
+  id: Float!
+}
+
+type SessionModel {
   id: Float
   userID: Float
-  username: String
+  profileID: Float
+  profile: ProfileModel
+  user: UserModel
 }
 
 type Query {
-  profile(filter: ProfileFilterByOneInput!): ProfileModel!
-  profiles(filter: ProfileFilterByManyInput): [ProfileModel!]!
+  me: SessionModel
+  session(filter: SessionFilterByOneInput!): SessionModel!
+  sessions(filter: SessionFilterByManyInput): [SessionModel!]!
 }
 
-input ProfileFilterByOneInput {
+input SessionFilterByOneInput {
   id: Float
-  username: String
 }
 
-input ProfileFilterByManyInput {
+input SessionFilterByManyInput {
   ids: [Float!]
   userIDs: [Float!]
-  usernames: [String!]
-  sortBy: [ProfileSortBy!]
-  limit: Float
-}
-
-enum ProfileSortBy {
-  NEWEST_PROFILE
 }
 
 type Mutation {
-  profileCreate(input: ProfileCreateInput!): ProfileModel!
-  profileCreateRandomized: ProfileModel!
-  profileUpdate(filter: ProfileFilterByOneInput!, input: ProfileUpdateInput!): ProfileModel!
-  profileDelete(filter: ProfileFilterByOneInput!): Boolean!
+  sessionChangeProfile(input: SessionChangeProfileInput!): String
+  sessionCreate(input: SessionCreateInput!): String!
+  sessionDelete(filter: SessionFilterByOneInput!): Boolean!
 }
 
-input ProfileCreateInput {
-  username: String!
+input SessionChangeProfileInput {
+  profileID: Float!
 }
 
-input ProfileUpdateInput {
-  username: String
+input SessionCreateInput {
+  email: String!
+  password: String!
+  profileID: Float
 }
