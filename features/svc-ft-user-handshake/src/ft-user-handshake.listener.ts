@@ -16,10 +16,6 @@ export class FtUserHandshakeListener {
   @MessagePattern(SVC_MESSAGING_GATEWAY_ON_MESSAGE_RECEIVED)
   onMessageReceived(message: MessagingGatewayMessageReceivedEvent<any>) {
     switch (message.event) {
-      case MessagingInternalEvent.VERSION_CHECK:
-        return this.onVersionCheck(message);
-      case MessagingInternalEvent.PONG_EVENT:
-        return this.onPong(message);
       case MessagingInternalEvent.SECURE_LOGIN:
         return this.onSecureLogin(message);
       default:
@@ -27,14 +23,10 @@ export class FtUserHandshakeListener {
     }
   }
 
-  async onVersionCheck(message: MessagingGatewayMessageReceivedEvent<any>) {
-    console.log('Version Check: ', message.data);
-  }
-
-  async onPong(message: MessagingGatewayMessageReceivedEvent<any>) {
-    console.log('pong');
-  }
   async onSecureLogin(message: MessagingGatewayMessageReceivedEvent<any>) {
-    return this.ftUserHandshakeService.onSecureLogin(message.data);
+    return this.ftUserHandshakeService.onSecureLogin(
+      message.clientID,
+      message.data.split('\n')[1]
+    );
   }
 }

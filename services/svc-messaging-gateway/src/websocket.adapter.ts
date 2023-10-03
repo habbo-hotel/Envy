@@ -38,13 +38,16 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
   ) => {
     fromEvent(client, 'message')
       .pipe(
-        mergeMap(data => this.bindMessageHandler(data, handlers, process)),
+        mergeMap(data =>
+          this.bindMessageHandler(client, data, handlers, process)
+        ),
         filter(result => result)
       )
       .subscribe(response => client.send(JSON.stringify(response)));
   };
 
   bindMessageHandler = async (
+    client: WebSocket,
     buffer: any,
     handlers: MessageMappingProperties[],
     process: (data: any) => Observable<any>
@@ -54,7 +57,6 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
     const header = parsedBuffer.readShort();
     parsedBuffer.reset();
     const data = parsedBuffer.readBytes(length).toString('utf8');
-    console.log(header);
     const matchingInternalEvent: MessagingInternalEvent =
       // @ts-ignore
       MessagingInternalEvent[MessagingInternalEvent[header]];
