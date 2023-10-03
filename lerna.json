@@ -6,6 +6,5 @@
     "services/**/*"
   ],
   "version": "independent",
-  "useWorkspaces": true,
   "npmClient": "pnpm"
 }
