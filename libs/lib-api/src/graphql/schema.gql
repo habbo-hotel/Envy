@@ -2,46 +2,45 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type UserModel {
+type ProfileModel {
   id: Float
-  email: String
-  isVerified: Boolean
+  userID: Float
+  username: String
 }
 
 type Query {
-  user(filter: UserFilterByOneInput!): UserModel!
-  users(filter: UserFilterByManyInput): [UserModel!]!
+  profile(filter: ProfileFilterByOneInput!): ProfileModel!
+  profiles(filter: ProfileFilterByManyInput): [ProfileModel!]!
 }
 
-input UserFilterByOneInput {
+input ProfileFilterByOneInput {
   id: Float
-  email: String
+  username: String
 }
 
-input UserFilterByManyInput {
+input ProfileFilterByManyInput {
   ids: [Float!]
-  emails: [String!]
+  userIDs: [Float!]
+  usernames: [String!]
+  sortBy: [ProfileSortBy!]
+  limit: Float
+}
+
+enum ProfileSortBy {
+  NEWEST_PROFILE
 }
 
 type Mutation {
-  userCreate(input: UserCreateInput!): UserModel!
-  userUpdate(filter: UserFilterByOneInput!, input: UserUpdateInput!): UserModel!
-  userChangePassword(filter: UserFilterByOneInput!, input: UserChangePasswordInput!): Boolean!
-  userDelete(filter: UserFilterByOneInput!): Boolean!
+  profileCreate(input: ProfileCreateInput!): ProfileModel!
+  profileCreateRandomized: ProfileModel!
+  profileUpdate(filter: ProfileFilterByOneInput!, input: ProfileUpdateInput!): ProfileModel!
+  profileDelete(filter: ProfileFilterByOneInput!): Boolean!
 }
 
-input UserCreateInput {
-  email: String!
-  password: String!
+input ProfileCreateInput {
+  username: String!
 }
 
-input UserUpdateInput {
-  email: String
-  password: String
-}
-
-input UserChangePasswordInput {
-  currentPassword: String!
-  newPassword: String!
-  newPasswordAgain: String!
+input ProfileUpdateInput {
+  username: String
 }

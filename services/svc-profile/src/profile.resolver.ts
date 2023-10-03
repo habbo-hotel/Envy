@@ -1,4 +1,4 @@
-import RandomWords from 'random-words';
+import {Chance} from 'chance';
 import {ProfileModel} from './profile.model';
 import {SessionWire} from '@envy/lib-client';
 import {ProfileEntity} from './profile.entity';
@@ -71,7 +71,8 @@ export class ProfileResolver {
   async profileCreateRandomized(
     @GetSession() session: SessionWire
   ): Promise<ProfileModel> {
-    const words = RandomWords(3);
+    const chance = new Chance();
+    const words = new Array(3).map(_ => chance.word());
 
     const username = words.join('-');
 
