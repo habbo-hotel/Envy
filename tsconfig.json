@@ -9,6 +9,12 @@
       "@envy/lib-api": [
         "libs/lib-api/src"
       ],
+      "@envy/svc-graphql-gateway": [
+        "svc/svc-graphql-gateway/src"
+      ],
+      "@envy/svc-messaging-gateway": [
+        "svc/svc-messaging-gateway/src"
+      ],
       "@envy/lib-client": [
         "libs/lib-client/src"
       ],
