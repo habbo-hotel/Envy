@@ -1,7 +1,12 @@
 import {LoggerService} from '@envy/lib-api';
 import {Injectable, UnauthorizedException} from '@nestjs/common';
 import {
-  MessagingExternalEvent,
+  AuthenticationSuccessOutgoingPacket,
+  AvailabilityStatusOutgoingPacket,
+  HabboBroadcastOutgoingPacket,
+  NavigatorSettingsOutgoingPacket,
+} from '@envy/lib-packets';
+import {
   MessagingGatewayClientService,
   ProfileClientService,
 } from '@envy/lib-client';
@@ -40,93 +45,27 @@ export class FtUserHandshakeService {
 
     await this.messagingGatewayClientService.sendMessage({
       clientID,
-      event: MessagingExternalEvent.USER_HOME_ROOM,
-      data: '',
+      buffer: new AuthenticationSuccessOutgoingPacket({}).toBuffer(),
     });
+
     await this.messagingGatewayClientService.sendMessage({
       clientID,
-      event: MessagingExternalEvent.USER_EFFECTS_LIST,
-      data: '',
+      buffer: new NavigatorSettingsOutgoingPacket({
+        homeRoomID: 0,
+        enterRoomID: 0,
+      }).toBuffer(),
     });
+
     await this.messagingGatewayClientService.sendMessage({
       clientID,
-      event: MessagingExternalEvent.USER_CLOTHES,
-      data: '',
+      buffer: new AvailabilityStatusOutgoingPacket({}).toBuffer(),
     });
+
     await this.messagingGatewayClientService.sendMessage({
       clientID,
-      event: MessagingExternalEvent.NEW_USER_IDENTITY,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.USER_PERMISSIONS,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.AVAILABILITY_STATUS,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.PING_COMPOSER,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.ENABLE_NOTIFICATIONS,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.USER_ACHIEVEMENT_SCORE,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.IS_FIRST_LOGIN_OF_DAY,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.MYSTERY_BOX_KEYS,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.BUILDERS_CLUB_EXPIRED,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.CFH_TOPICS_MESSAGE,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.CFH_TOPICS_MESSAGE,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.FAVORITE_ROOMS_COUNT,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.GAMES_CENTER_GAME_LIST,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.GAME_CENTER_ACCOUNT_INFO,
-      data: '',
-    });
-    await this.messagingGatewayClientService.sendMessage({
-      clientID,
-      event: MessagingExternalEvent.USER_CLUB,
-      data: '',
+      buffer: new HabboBroadcastOutgoingPacket({
+        message: 'Envy is a next generation habbo server',
+      }).toBuffer(),
     });
   }
 }

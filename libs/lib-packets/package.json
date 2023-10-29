@@ -1,5 +1,5 @@
 {
-  "name": "@envy/lib-client",
+  "name": "@envy/lib-packets",
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
@@ -8,7 +8,6 @@
     "compile": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
-    "@envy/lib-packets": "workspace:*",
     "@nestjs/common": "*",
     "@nestjs/core": "*",
     "@nestjs/microservices": "*",
@@ -17,7 +16,6 @@
     "nats": "*"
   },
   "peerDependencies": {
-    "@envy/lib-packets": "workspace:*",
     "@nestjs/common": "*",
     "@nestjs/core": "*",
     "@nestjs/microservices": "*",

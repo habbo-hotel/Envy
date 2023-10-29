@@ -69,18 +69,13 @@ export class MessagingGatewayProvider
     }
   }
 
-  send(clientID: string, event: any, message: any) {
-    this.logger.log(`Sending message ${message} to client ${clientID}`);
+  send(clientID: string, buffer: Buffer) {
+    this.logger.log(`Sending buffer to client ${clientID}`);
     const matchingClient = this.wsClients.find(_ => _.id === clientID);
     if (!matchingClient) {
-      this.logger.error(
-        `Failed to send message ${message}.  Client ${clientID} not found`
-      );
+      this.logger.error(`Failed to send buffer. Client ${clientID} not found`);
       throw new BadRequestException();
     }
-    const newEvent = new ByteBuffer();
-    newEvent.writeShort(event);
-    newEvent.writeInt(newEvent.buffer.length);
-    matchingClient.send(newEvent.buffer);
+    matchingClient.send(buffer);
   }
 }

@@ -1,3 +1,5 @@
+import {OutgoingPacketBase} from '@envy/lib-packets';
+
 export enum MessagingInternalEvent {
   PONG_EVENT = 2596,
   VERSION_CHECK = 4000,
@@ -22,29 +24,24 @@ export enum MessagingInternalEvent {
 }
 
 export enum MessagingExternalEvent {
-  USER_HOME_ROOM = 2875,
-  USER_EFFECTS_LIST = 340,
-  USER_CLOTHES = 1450,
-  NEW_USER_IDENTITY = 3738,
-  USER_PERMISSIONS = 411,
+  AUTHENTICATION_SUCCESS = 2491,
   AVAILABILITY_STATUS = 2033,
-  PING_COMPOSER = 3928,
-  ENABLE_NOTIFICATIONS = 3284,
-  USER_ACHIEVEMENT_SCORE = 1968,
-  IS_FIRST_LOGIN_OF_DAY = 793,
-  MYSTERY_BOX_KEYS = 2833,
-  BUILDERS_CLUB_EXPIRED = 1452,
-  CFH_TOPICS_MESSAGE = 325,
-  FAVORITE_ROOMS_COUNT = 151,
-  GAMES_CENTER_GAME_LIST = 222,
-  GAME_CENTER_ACCOUNT_INFO = 2893,
-  USER_CLUB = 954,
+  NAVIGATOR_SETTINGS = 2875,
+  HABBO_BROADCAST = 3801,
+}
+
+export interface MessagingGatewayBroadcastMessageEventRequest<D> {
+  event: MessagingExternalEvent;
+  data: D;
 }
 
 export interface MessagingGatewaySendMessageEventRequest<D> {
-  clientID?: string;
-  event: MessagingExternalEvent;
-  data: D;
+  clientID: string;
+  buffer: Buffer;
+}
+
+export interface MessagingGatewayBroadcastMessageEventResponse {
+  success: boolean;
 }
 
 export interface MessagingGatewaySendMessageEventResponse {

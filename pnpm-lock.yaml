@@ -101,6 +101,9 @@ importers:
       '@envy/lib-client':
         specifier: workspace:*
         version: link:../../libs/lib-client
+      '@envy/lib-packets':
+        specifier: workspace:*
+        version: link:../../libs/lib-packets
       '@nestjs/apollo':
         specifier: 12.0.9
         version: 12.0.9(@apollo/gateway@2.5.5)(@apollo/server@4.9.3)(@nestjs/common@10.2.6)(@nestjs/core@10.2.6)(@nestjs/graphql@12.0.9)(graphql@16.8.1)
@@ -235,6 +238,9 @@ importers:
 
   libs/lib-client:
     devDependencies:
+      '@envy/lib-packets':
+        specifier: workspace:*
+        version: link:../lib-packets
       '@nestjs/common':
         specifier: '*'
         version: 9.4.0(reflect-metadata@0.1.13)(rxjs@7.8.0)
@@ -253,6 +259,27 @@ importers:
       rxjs:
         specifier: '*'
         version: 7.8.0
+
+  libs/lib-packets:
+    devDependencies:
+      '@nestjs/common':
+        specifier: '*'
+        version: 10.2.6(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/core':
+        specifier: '*'
+        version: 10.2.6(@nestjs/common@10.2.6)(@nestjs/microservices@10.2.6)(@nestjs/websockets@10.2.6)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/graphql':
+        specifier: '*'
+        version: 12.0.9(@nestjs/common@10.2.6)(@nestjs/core@10.2.6)(class-transformer@0.5.1)(class-validator@0.14.0)(graphql@16.8.1)(reflect-metadata@0.1.13)
+      '@nestjs/microservices':
+        specifier: '*'
+        version: 10.2.6(@nestjs/common@10.2.6)(@nestjs/core@10.2.6)(@nestjs/websockets@10.2.6)(nats@2.17.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      nats:
+        specifier: '*'
+        version: 2.17.0
+      rxjs:
+        specifier: '*'
+        version: 7.8.1
 
   services/svc-graphql-gateway:
     dependencies:
@@ -3152,7 +3179,6 @@ packages:
       '@graphql-tools/utils': 10.0.6(graphql@16.8.1)
       graphql: 16.8.1
       tslib: 2.6.2
-    dev: false
 
   /@graphql-tools/schema@10.0.0(graphql@16.8.1):
     resolution: {integrity: sha512-kf3qOXMFcMs2f/S8Y3A8fm/2w+GaHAkfr3Gnhh2LOug/JgpY/ywgFVxO3jOeSpSEdoYcDKLcXVjMigNbY4AdQg==}
@@ -3165,7 +3191,6 @@ packages:
       graphql: 16.8.1
       tslib: 2.6.2
       value-or-promise: 1.0.12
-    dev: false
 
   /@graphql-tools/schema@9.0.17(graphql@16.8.1):
     resolution: {integrity: sha512-HVLq0ecbkuXhJlpZ50IHP5nlISqH2GbNgjBJhhRzHeXhfwlUOT4ISXGquWTmuq61K0xSaO0aCjMpxe4QYbKTng==}
@@ -3200,7 +3225,6 @@ packages:
       dset: 3.1.2
       graphql: 16.8.1
       tslib: 2.6.2
-    dev: false
 
   /@graphql-tools/utils@9.2.1(graphql@16.8.1):
     resolution: {integrity: sha512-WUw506Ql6xzmOORlriNrD6Ugx+HjVgYxt9KCXD9mHAak+eaXSwuGGPyE60hy9xaDEoXKBsG7SkG69ybitaVl6A==}
@@ -3559,7 +3583,6 @@ packages:
       rxjs: 7.8.1
       tslib: 2.6.2
       uid: 2.0.2
-    dev: false
 
   /@nestjs/common@9.4.0(reflect-metadata@0.1.13)(rxjs@7.8.0):
     resolution: {integrity: sha512-RUcVAQsEF4WPrmzFXEOUfZnPwrLTe1UVlzXTlSyfqfqbdWDPKDGlIPVelBLfc5/+RRUQ0I5iE4+CQvpCmkqldw==}
@@ -3614,7 +3637,6 @@ packages:
       uid: 2.0.2
     transitivePeerDependencies:
       - encoding
-    dev: false
 
   /@nestjs/core@10.2.6(@nestjs/common@10.2.6)(@nestjs/microservices@10.2.6)(@nestjs/websockets@10.2.6)(reflect-metadata@0.1.13)(rxjs@7.8.1):
     resolution: {integrity: sha512-oGQ2CoBeFRT7egG47MFqS89xlXBTIRZBkRpKRTPMftEfL1RMXhXIcIIaGfzp11wx6qxrBVxBXpVLM09oaqHpaQ==}
@@ -3647,7 +3669,6 @@ packages:
       uid: 2.0.2
     transitivePeerDependencies:
       - encoding
-    dev: false
 
   /@nestjs/core@10.2.6(@nestjs/common@10.2.6)(@nestjs/platform-express@10.2.6)(reflect-metadata@0.1.13)(rxjs@7.8.1):
     resolution: {integrity: sha512-oGQ2CoBeFRT7egG47MFqS89xlXBTIRZBkRpKRTPMftEfL1RMXhXIcIIaGfzp11wx6qxrBVxBXpVLM09oaqHpaQ==}
@@ -3802,7 +3823,6 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
-    dev: false
 
   /@nestjs/jwt@10.1.1(@nestjs/common@9.4.0):
     resolution: {integrity: sha512-sISYylg8y1Mb7saxPx5Zh11i7v9JOh70CEC/rN6g43MrbFlJ57c1eYFrffxip1YAx3DmV4K67yXob3syKZMOew==}
@@ -3848,7 +3868,6 @@ packages:
       class-transformer: 0.5.1
       class-validator: 0.14.0
       reflect-metadata: 0.1.13
-    dev: false
 
   /@nestjs/microservices@10.2.6(@nestjs/common@10.2.6)(@nestjs/core@10.2.6)(@nestjs/websockets@10.2.6)(nats@2.17.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
     resolution: {integrity: sha512-Ef5Tv0arRSXmMwzlOvXHZEoOS8QlftIrDVrLkpcR6x5Q3BaKrkGOKBet6w2JbssX4eEGt2nw4dy/TbzN9pQYFw==}
@@ -3894,7 +3913,6 @@ packages:
       reflect-metadata: 0.1.13
       rxjs: 7.8.1
       tslib: 2.6.2
-    dev: false
 
   /@nestjs/microservices@9.4.0(@nestjs/common@9.4.0)(@nestjs/core@9.4.0)(amqplib@0.8.0)(reflect-metadata@0.1.13)(rxjs@7.8.0):
     resolution: {integrity: sha512-3IlURTijN2whedrfnLbJ3QQ4giDU1SxXcepXxtUL1MMkZAJgw2gN7sTquOXVgy/Ci5OMPO+vOjVyadjFejrgKA==}
@@ -4000,7 +4018,6 @@ packages:
       tslib: 2.6.2
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   /@nestjs/platform-express@9.4.0(@nestjs/common@9.4.0)(@nestjs/core@9.4.0):
     resolution: {integrity: sha512-PpnfghpNq7mwG43z3+pacHulsabUCBMla4nUikntXT525ORpZSDvh/nLi1HLfE4w5+FcINc8/RBOyYTeRVmiRQ==}
@@ -4088,7 +4105,6 @@ packages:
       reflect-metadata: 0.1.13
       rxjs: 7.8.1
       tslib: 2.6.2
-    dev: false
 
   /@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1:
     resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
@@ -5569,7 +5585,6 @@ packages:
 
   /@types/validator@13.7.15:
     resolution: {integrity: sha512-yeinDVQunb03AEP8luErFcyf/7Lf7AzKCD0NXfgVoGCCQDNpZET8Jgq74oBgqKld3hafLbfzt/3inUdQvaFeXQ==}
-    dev: false
 
   /@types/ws@8.5.6:
     resolution: {integrity: sha512-8B5EO9jLVCy+B58PLHvLDuOD8DRVMgQzq8d55SjLCOn9kqGyqOvy27exVaTio1q1nX5zLu8/6N0n2ThSxOM6tg==}
@@ -6837,7 +6852,6 @@ packages:
       '@types/validator': 13.7.15
       libphonenumber-js: 1.10.28
       validator: 13.9.0
-    dev: false
 
   /clean-stack@2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
@@ -7481,7 +7495,6 @@ packages:
   /dset@3.1.2:
     resolution: {integrity: sha512-g/M9sqy3oHe477Ar4voQxWtaPIFw1jTdKZuomOjhCcBx9nHUNn0pu6NopuFFrTh/TRZIKEj+76vLWFu9BNKk+Q==}
     engines: {node: '>=4'}
-    dev: false
 
   /duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
@@ -9194,7 +9207,6 @@ packages:
       graphql: '>=0.11 <=16'
     dependencies:
       graphql: 16.8.1
-    dev: false
 
   /graphql@16.8.1:
     resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
@@ -10188,7 +10200,6 @@ packages:
 
   /libphonenumber-js@1.10.28:
     resolution: {integrity: sha512-1eAgjLrZA0+2Wgw4hs+4Q/kEBycxQo8ZLYnmOvZ3AlM8ImAVAJgDPlZtISLEzD1vunc2q8s2Pn7XwB7I8U3Kzw==}
-    dev: false
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
@@ -10754,7 +10765,6 @@ packages:
     engines: {node: '>= 14.0.0'}
     dependencies:
       nkeys.js: 1.0.5
-    dev: false
 
   /natural-compare-lite@1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
@@ -11131,7 +11141,6 @@ packages:
   /object-hash@3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==}
     engines: {node: '>= 6'}
-    dev: false
 
   /object-inspect@1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
@@ -13703,7 +13712,6 @@ packages:
   /validator@13.9.0:
     resolution: {integrity: sha512-B+dGG8U3fdtM0/aNK4/X8CXq/EcxU2WPrPEkJGslb47qyHsxmbggTWK0yEA4qnYVNF+nxNlN88o14hIcPmSIEA==}
     engines: {node: '>= 0.10'}
-    dev: false
 
   /value-or-promise@1.0.12:
     resolution: {integrity: sha512-Z6Uz+TYwEqE7ZN50gwn+1LCVo9ZVrpxRPOhOLnncYkY1ZzOYtrX8Fwf/rFktZ8R5mJms6EZf5TqNOMeZmnPq9Q==}
