@@ -1,10 +1,14 @@
 import {Module} from '@nestjs/common';
+import {CommonModule} from '@envy/lib-api';
 import {FtUserHandshakeService} from './ft-user-handshake.service';
 import {FtUserHandshakeListener} from './ft-user-handshake.listener';
-import {MessagingGatewayClientModule, UserClientModule} from '@envy/lib-client';
+import {
+  MessagingGatewayClientModule,
+  ProfileClientModule,
+} from '@envy/lib-client';
 
 @Module({
-  imports: [MessagingGatewayClientModule, UserClientModule],
+  imports: [MessagingGatewayClientModule, ProfileClientModule, CommonModule],
   controllers: [FtUserHandshakeListener],
   providers: [FtUserHandshakeService],
   exports: [FtUserHandshakeService],

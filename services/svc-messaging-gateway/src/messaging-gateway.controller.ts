@@ -3,6 +3,7 @@ import {MessagePattern} from '@nestjs/microservices';
 import {LoggerService} from '@envy/lib-api';
 import {MessagingGatewayProvider} from './messaging-gateway.provider';
 import {
+  MessagingExternalEvent,
   MessagingGatewayMessageReceivedEvent,
   MessagingGatewaySendMessageEventRequest,
   MessagingGatewaySendMessageEventResponse,
@@ -22,7 +23,9 @@ export class MessagingGatewayController {
     input: MessagingGatewaySendMessageEventRequest<D>
   ): Promise<MessagingGatewaySendMessageEventResponse> {
     this.loggerService.log(
-      `Sending message to ${input.clientID} with event ${input.event} and data ${input.data}`
+      `Sending message to ${input.clientID} with event #${input.event} ${
+        MessagingExternalEvent[input.event]
+      } and data ${input.data}`
     );
     if (input.clientID) {
       await this.messagingGatewayProvider.send(
