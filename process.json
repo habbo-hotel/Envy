@@ -58,7 +58,7 @@
     },
     {
       "name": "svc-ft-user-handshake",
-      "cwd": "./services/svc-ft-user-handshake",
+      "cwd": "./features/svc-ft-user-handshake",
       "script": "pnpm",
       "args": "run web-server:start",
       "watch": [

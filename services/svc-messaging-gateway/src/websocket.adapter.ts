@@ -1,7 +1,8 @@
 import * as WebSocket from 'ws';
 import ByteBuffer from 'bytebuffer';
+import {Observable, fromEvent} from 'rxjs';
+import {LoggerService} from '@envy/lib-api';
 import {mergeMap, filter} from 'rxjs/operators';
-import {Observable, fromEvent, EMPTY} from 'rxjs';
 import {MessageMappingProperties} from '@nestjs/websockets';
 import {
   MessagingGatewayClientService,
@@ -15,7 +16,10 @@ import {
 export class WebSocketAdapter implements BaseWebSocketAdapter {
   private messagingGatewayClient!: MessagingGatewayClientService;
 
-  constructor(private app: INestApplicationContext) {
+  constructor(
+    app: INestApplicationContext,
+    private readonly loggerService: LoggerService
+  ) {
     app
       .resolve<MessagingGatewayClientService>(MessagingGatewayClientService)
       .then(messagingGatewayClient => {
@@ -36,6 +40,7 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
     handlers: MessageMappingProperties[],
     process: (data: any) => Observable<any>
   ) => {
+    this.loggerService.log(`Handling message from client ${client.id}`);
     fromEvent(client, 'message')
       .pipe(
         mergeMap(data =>
@@ -52,6 +57,7 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
     handlers: MessageMappingProperties[],
     process: (data: any) => Observable<any>
   ): Promise<any> => {
+    this.loggerService.log(`Processing message from client ${client.id}`);
     const parsedBuffer = ByteBuffer.fromBinary(buffer.data);
     const length = parsedBuffer.readInt();
     const header = parsedBuffer.readShort();
@@ -64,6 +70,7 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
       throw new Error(`${header} is not a supported packet`);
     }
     await this.messagingGatewayClient._onMessageReceived({
+      clientID: client.id,
       event: matchingInternalEvent,
       data,
     });

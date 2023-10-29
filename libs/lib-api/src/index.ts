@@ -3,6 +3,7 @@ export * from './common/currency.helpers';
 export * from './common/date.helpers';
 export * from './common/hash.service';
 export * from './common/environment.const';
+export * from './common/logger.service';
 export * from './database/base.repository';
 export * from './database/database.module';
 export * from './database/database.types';

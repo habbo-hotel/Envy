@@ -42,7 +42,7 @@ export enum MessagingExternalEvent {
 }
 
 export interface MessagingGatewaySendMessageEventRequest<D> {
-  clientID?: number;
+  clientID?: string;
   event: MessagingExternalEvent;
   data: D;
 }
@@ -52,7 +52,7 @@ export interface MessagingGatewaySendMessageEventResponse {
 }
 
 export interface MessagingGatewayMessageReceivedEvent<D> {
-  clientID?: number;
+  clientID: string;
   event: MessagingInternalEvent;
   data: D;
 }

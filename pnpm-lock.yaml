@@ -329,6 +329,9 @@ importers:
 
   services/svc-messaging-gateway:
     dependencies:
+      '@envy/lib-api':
+        specifier: workspace:*
+        version: link:../../libs/lib-api
       '@envy/lib-client':
         specifier: workspace:*
         version: link:../../libs/lib-client
@@ -365,6 +368,9 @@ importers:
       rxjs:
         specifier: 7.8.1
         version: 7.8.1
+      uuid:
+        specifier: 9.0.1
+        version: 9.0.1
       ws:
         specifier: 8.14.2
         version: 8.14.2
@@ -378,6 +384,9 @@ importers:
       '@types/express':
         specifier: 4.17.18
         version: 4.17.18
+      '@types/uuid':
+        specifier: 9.0.6
+        version: 9.0.6
       '@types/ws':
         specifier: 8.5.6
         version: 8.5.6
@@ -754,11 +763,11 @@ packages:
     peerDependencies:
       graphql: ^16.5.0
     dependencies:
-      '@types/uuid': 9.0.1
+      '@types/uuid': 9.0.6
       chalk: 4.1.2
       graphql: 16.8.1
       js-levenshtein: 1.1.6
-      uuid: 9.0.0
+      uuid: 9.0.1
     dev: true
 
   /@apollo/federation-internals@2.5.5(graphql@16.8.1):
@@ -767,11 +776,11 @@ packages:
     peerDependencies:
       graphql: ^16.5.0
     dependencies:
-      '@types/uuid': 9.0.1
+      '@types/uuid': 9.0.6
       chalk: 4.1.2
       graphql: 16.8.1
       js-levenshtein: 1.1.6
-      uuid: 9.0.0
+      uuid: 9.0.1
     dev: false
 
   /@apollo/gateway@2.5.5(graphql@16.8.1):
@@ -833,7 +842,7 @@ packages:
       deep-equal: 2.2.0
       graphql: 16.8.1
       ts-graphviz: 1.6.1
-      uuid: 9.0.0
+      uuid: 9.0.1
     dev: false
 
   /@apollo/query-planner@2.5.5(graphql@16.8.1):
@@ -965,7 +974,7 @@ packages:
       negotiator: 0.6.3
       node-abort-controller: 3.1.1
       node-fetch: 2.6.9
-      uuid: 9.0.0
+      uuid: 9.0.1
       whatwg-mimetype: 3.0.0
     transitivePeerDependencies:
       - encoding
@@ -3381,7 +3390,7 @@ packages:
       tar: 6.1.11
       temp-dir: 1.0.0
       upath: 2.0.1
-      uuid: 9.0.0
+      uuid: 9.0.1
       validate-npm-package-license: 3.0.4
       validate-npm-package-name: 5.0.0
       write-file-atomic: 5.0.1
@@ -5555,8 +5564,8 @@ packages:
       '@types/estree': 1.0.2
     dev: false
 
-  /@types/uuid@9.0.1:
-    resolution: {integrity: sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA==}
+  /@types/uuid@9.0.6:
+    resolution: {integrity: sha512-BT2Krtx4xaO6iwzwMFUYvWBWkV2pr37zD68Vmp1CDV196MzczBRxuEpD6Pr395HAgebC/co7hOphs53r8V7jew==}
 
   /@types/validator@13.7.15:
     resolution: {integrity: sha512-yeinDVQunb03AEP8luErFcyf/7Lf7AzKCD0NXfgVoGCCQDNpZET8Jgq74oBgqKld3hafLbfzt/3inUdQvaFeXQ==}
@@ -13658,6 +13667,10 @@ packages:
 
   /uuid@9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+
+  /uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
 
   /v8-compile-cache-lib@3.0.1:

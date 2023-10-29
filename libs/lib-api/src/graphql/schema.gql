@@ -2,46 +2,49 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type ProfileModel {
+  id: Float!
+}
+
 type UserModel {
+  id: Float!
+}
+
+type SessionModel {
   id: Float
-  email: String
-  isVerified: Boolean
+  userID: Float
+  profileID: Float
+  profile: ProfileModel
+  user: UserModel
 }
 
 type Query {
-  user(filter: UserFilterByOneInput!): UserModel!
-  users(filter: UserFilterByManyInput): [UserModel!]!
+  me: SessionModel
+  session(filter: SessionFilterByOneInput!): SessionModel!
+  sessions(filter: SessionFilterByManyInput): [SessionModel!]!
 }
 
-input UserFilterByOneInput {
+input SessionFilterByOneInput {
   id: Float
-  email: String
 }
 
-input UserFilterByManyInput {
+input SessionFilterByManyInput {
   ids: [Float!]
-  emails: [String!]
+  userIDs: [Float!]
 }
 
 type Mutation {
-  userCreate(input: UserCreateInput!): UserModel!
-  userUpdate(filter: UserFilterByOneInput!, input: UserUpdateInput!): UserModel!
-  userChangePassword(filter: UserFilterByOneInput!, input: UserChangePasswordInput!): Boolean!
-  userDelete(filter: UserFilterByOneInput!): Boolean!
+  sessionChangeProfile(input: SessionChangeProfileInput!): String
+  sessionCreate(input: SessionCreateInput!): String!
+  sessionDelete(filter: SessionFilterByOneInput!): Boolean!
 }
 
-input UserCreateInput {
+input SessionChangeProfileInput {
+  profileID: Float!
+}
+
+input SessionCreateInput {
   email: String!
   password: String!
-}
-
-input UserUpdateInput {
-  email: String
-  password: String
-}
-
-input UserChangePasswordInput {
-  currentPassword: String!
-  newPassword: String!
-  newPasswordAgain: String!
+  profileID: Float
 }

@@ -8,10 +8,12 @@ import {
   SVC_MESSAGING_GATEWAY_NAME,
   SVC_MESSAGING_GATEWAY_PORT,
 } from '@envy/lib-client';
+import {LoggerService} from '@envy/lib-api';
 
 async function bootstrap() {
   const app = await NestFactory.create(MessagingGatewayModule);
-  app.useWebSocketAdapter(new WebSocketAdapter(app));
+  const loggerService = app.get(LoggerService);
+  app.useWebSocketAdapter(new WebSocketAdapter(app, loggerService));
   await app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.NATS,
     options: {

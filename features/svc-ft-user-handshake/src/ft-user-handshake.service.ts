@@ -13,9 +13,11 @@ export class FtUserHandshakeService {
   ) {}
 
   async onSecureLogin(clientID?: number, ssoTicket?: string): Promise<void> {
+    console.log('processing handshake: ', clientID, ssoTicket);
     if (!ssoTicket) {
       throw new UnauthorizedException();
     }
+
     const matchingUser = await this.userClientService.findOne({ssoTicket});
 
     await this.messagingGatewayClientService.sendMessage({
