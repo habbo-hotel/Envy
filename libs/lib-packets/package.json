@@ -7,6 +7,9 @@
     "clean": "rimraf -rf ./dist && rimraf -rf ./build",
     "compile": "tsc -p tsconfig.build.json"
   },
+  "dependencies": {
+    "bytebuffer": "5.0.1"
+  },
   "devDependencies": {
     "@nestjs/common": "*",
     "@nestjs/core": "*",

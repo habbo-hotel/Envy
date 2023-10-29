@@ -1,17 +1,8 @@
 import {MessagingExternalEvent} from '@envy/lib-client';
-import {OutgoingPacketBase} from '../base-outgoing.packet';
+import {BaseOutgoingPacket} from '../base-outgoing.packet';
 
-export class AuthenticationSuccessOutgoingPacket
-  implements OutgoingPacketBase<AuthenticationSuccessOutgoingPacketData>
-{
-  readonly header = MessagingExternalEvent.AUTHENTICATION_SUCCESS;
-
-  constructor(readonly data: AuthenticationSuccessOutgoingPacketData) {}
-
-  toBuffer(): Buffer {
-    const newBuffer = Buffer.alloc(this.header);
-    return newBuffer;
-  }
+export class AuthenticationSuccessOutgoingPacket extends BaseOutgoingPacket<AuthenticationSuccessOutgoingPacketData> {
+  readonly _header = MessagingExternalEvent.AUTHENTICATION_SUCCESS;
 }
 
 export interface AuthenticationSuccessOutgoingPacketData {}

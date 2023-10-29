@@ -1,19 +1,14 @@
 import {MessagingExternalEvent} from '@envy/lib-client';
-import {OutgoingPacketBase} from '../base-outgoing.packet';
+import {BaseOutgoingPacket} from '../base-outgoing.packet';
 
-export class AvailabilityStatusOutgoingPacket
-  implements OutgoingPacketBase<AvailabilityStatusOutgoingPacketData>
-{
-  readonly header = MessagingExternalEvent.AVAILABILITY_STATUS;
-
-  constructor(readonly data: AvailabilityStatusOutgoingPacketData) {}
+export class AvailabilityStatusOutgoingPacket extends BaseOutgoingPacket<AvailabilityStatusOutgoingPacketData> {
+  readonly _header = MessagingExternalEvent.AVAILABILITY_STATUS;
 
   toBuffer(): Buffer {
-    const newBuffer = Buffer.alloc(this.header);
-    newBuffer.write('true');
-    newBuffer.write('false');
-    newBuffer.write('true');
-    return newBuffer;
+    this._writeBooleanToBuffer(true);
+    this._writeBooleanToBuffer(false);
+    this._writeBooleanToBuffer(true);
+    return this._buffer.toBuffer();
   }
 }
 

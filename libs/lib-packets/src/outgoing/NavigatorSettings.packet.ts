@@ -1,20 +1,14 @@
 import {MessagingExternalEvent} from '@envy/lib-client';
-import {OutgoingPacketBase} from '../base-outgoing.packet';
+import {BaseOutgoingPacket} from '../base-outgoing.packet';
 
-export class NavigatorSettingsOutgoingPacket
-  implements OutgoingPacketBase<NavigatorSettingsOutgoingPacketData>
-{
-  readonly header = MessagingExternalEvent.NAVIGATOR_SETTINGS;
-
-  constructor(readonly data: NavigatorSettingsOutgoingPacketData) {}
+export class NavigatorSettingsOutgoingPacket extends BaseOutgoingPacket<NavigatorSettingsOutgoingPacketData> {
+  readonly _header = MessagingExternalEvent.NAVIGATOR_SETTINGS;
 
   toBuffer(): Buffer {
-    const newBuffer = Buffer.alloc(this.header);
-    newBuffer.write(this.data.homeRoomID.toString());
-    newBuffer.write(
-      this.data.homeRoomID ? this.data.homeRoomID.toString() : '0'
-    );
-    return newBuffer;
+    const newBuffer = Buffer.alloc(this._header);
+    this._buffer.writeInt(this.data.homeRoomID);
+    this._buffer.writeInt(this.data.enterRoomID);
+    return this._buffer.toBuffer();
   }
 }
 

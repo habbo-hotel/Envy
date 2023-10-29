@@ -1,17 +1,12 @@
 import {MessagingExternalEvent} from '@envy/lib-client';
-import {OutgoingPacketBase} from '../base-outgoing.packet';
+import {BaseOutgoingPacket} from '../base-outgoing.packet';
 
-export class HabboBroadcastOutgoingPacket
-  implements OutgoingPacketBase<HabboBroadcastOutgoingPacketData>
-{
-  readonly header = MessagingExternalEvent.HABBO_BROADCAST;
-
-  constructor(readonly data: HabboBroadcastOutgoingPacketData) {}
+export class HabboBroadcastOutgoingPacket extends BaseOutgoingPacket<HabboBroadcastOutgoingPacketData> {
+  readonly _header = MessagingExternalEvent.HABBO_BROADCAST;
 
   toBuffer(): Buffer {
-    const newBuffer = Buffer.alloc(this.header);
-    newBuffer.write(this.data.message);
-    return newBuffer;
+    this._buffer.writeString(this.data.message);
+    return this._buffer.toBuffer();
   }
 }
 

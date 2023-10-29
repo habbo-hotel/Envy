@@ -261,6 +261,10 @@ importers:
         version: 7.8.0
 
   libs/lib-packets:
+    dependencies:
+      bytebuffer:
+        specifier: 5.0.1
+        version: 5.0.1
     devDependencies:
       '@nestjs/common':
         specifier: '*'
