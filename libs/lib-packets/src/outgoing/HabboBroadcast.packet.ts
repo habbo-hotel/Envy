@@ -5,6 +5,7 @@ export class HabboBroadcastOutgoingPacket extends BaseOutgoingPacket<HabboBroadc
   readonly _header = MessagingExternalEvent.HABBO_BROADCAST;
 
   toBuffer(): Buffer {
+    console.log('x');
     this._buffer.writeString(this.data.message);
     return this._buffer.toBuffer();
   }

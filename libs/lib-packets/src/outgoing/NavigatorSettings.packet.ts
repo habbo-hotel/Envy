@@ -5,7 +5,7 @@ export class NavigatorSettingsOutgoingPacket extends BaseOutgoingPacket<Navigato
   readonly _header = MessagingExternalEvent.NAVIGATOR_SETTINGS;
 
   toBuffer(): Buffer {
-    const newBuffer = Buffer.alloc(this._header);
+    console.log('y');
     this._buffer.writeInt(this.data.homeRoomID);
     this._buffer.writeInt(this.data.enterRoomID);
     return this._buffer.toBuffer();

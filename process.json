@@ -7,7 +7,8 @@
       "args": "run web-server:start",
       "watch": [
         "src",
-        "../**/src"
+        "../**/src",
+        "libs/**/src"
       ],
       "watch_delay": 1000
     },
@@ -17,7 +18,8 @@
       "script": "pnpm",
       "args": "run web-server:start",
       "watch": [
-        "src"
+        "src",
+        "libs/**/src"
       ],
       "watch_delay": 1000
     },
@@ -27,7 +29,8 @@
       "script": "pnpm",
       "args": "run web-server:start",
       "watch": [
-        "src"
+        "src",
+        "libs/**/src"
       ],
       "watch_delay": 1000
     },
@@ -37,7 +40,8 @@
       "script": "pnpm",
       "args": "run web-server:start",
       "watch": [
-        "src"
+        "src",
+        "libs/**/src"
       ]
     },
     {
@@ -46,7 +50,8 @@
       "script": "pnpm",
       "args": "run web-server:start",
       "watch": [
-        "src"
+        "src",
+        "libs/**/src"
       ],
       "watch_delay": 1000
     },
@@ -62,7 +67,8 @@
       "script": "pnpm",
       "args": "run web-server:start",
       "watch": [
-        "src"
+        "src",
+        "libs/**/src"
       ],
       "watch_delay": 1000
     }
