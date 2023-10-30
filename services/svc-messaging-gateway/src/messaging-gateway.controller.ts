@@ -51,7 +51,9 @@ export class MessagingGatewayController {
   async onMessageReceived<D>(
     event: MessagingGatewayMessageReceivedEvent<D>
   ): Promise<MessagingGatewayMessageReceivedEvent<D>> {
-    this.loggerService.log(`Message received ${event}`);
+    this.loggerService.log(
+      `Message received ${event.event} with data ${event.data} for client ${event.clientID}`
+    );
     return event;
   }
 }

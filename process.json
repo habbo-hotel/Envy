@@ -71,6 +71,17 @@
         "../libs/**/src"
       ],
       "watch_delay": 1000
+    },
+    {
+      "name": "svc-ft-user-information",
+      "cwd": "./features/svc-ft-user-information",
+      "script": "pnpm",
+      "args": "run web-server:start",
+      "watch": [
+        "src",
+        "../libs/**/src"
+      ],
+      "watch_delay": 1000
     }
   ]
 }

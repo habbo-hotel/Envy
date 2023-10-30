@@ -1,6 +1,6 @@
 import {Server} from 'ws';
 import {v4 as uuidv4} from 'uuid';
-import ByteBuffer from 'bytebuffer';
+import {Buffer} from '@envy/lib-packets';
 import {LoggerService} from '@envy/lib-api';
 import {BadRequestException} from '@nestjs/common';
 import {
@@ -43,7 +43,8 @@ export class MessagingGatewayProvider
         break;
       }
     }
-    this.broadcast('disconnect', {});
+    // @ts-ignore
+    this.broadcast('disconnect');
   }
 
   getClientByID(clientID: string): any {
@@ -55,18 +56,9 @@ export class MessagingGatewayProvider
     return matchingClient;
   }
 
-  broadcast(event: any, message: any) {
-    this.logger.log(
-      `Broadcasting event ${JSON.stringify(event)} message ${JSON.stringify(
-        message
-      )} to all clients`
-    );
-    const newEvent = new ByteBuffer();
-    newEvent.writeShort(event);
-    newEvent.writeInt(newEvent.buffer.length);
-    for (const c of this.wsClients) {
-      c.send(newEvent.buffer);
-    }
+  broadcast(buffer: Buffer) {
+    this.logger.log('Broadcasting to all clients');
+    return Promise.all(this.wsClients.map(_ => _.send(buffer)));
   }
 
   send(clientID: string, buffer: Buffer) {
