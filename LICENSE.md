@@ -1,31 +1,21 @@
-# Confidential Project License
+# Copyright and License Notice
 
-This project is confidential and proprietary. Unauthorized use, reproduction, or distribution of this project or any portion thereof is strictly prohibited and may result in severe civil and criminal penalties.
+## Copyright
 
-By accessing, using, or obtaining any part of this project, you agree to the terms of this license. If you do not agree to these terms, do not use or access the project.
+All documentation, source files, and source code (hereafter referred to as "Materials") included in this repository are protected by copyright law. The copyright for these Materials is owned by Chris P
 
-## Permissions
+## License
 
-You are permitted to:
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Materials, to deal in the Materials without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Materials, and to permit persons to whom the Materials are furnished to do so, subject to the following conditions:
 
-- Use this project for the sole purpose of authorized development and evaluation.
-- Make copies of the project for backup or archival purposes only.
+1. The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Materials.
 
-## Restrictions
+2. Any and all modifications, additions, or deletions to the Materials must clearly indicate the changes made and must not remove or alter the original copyright notice.
 
-You are not permitted to:
+3. Redistributions of any form whatsoever must retain the above copyright notice, this license, and all associated notices.
 
-- Use this project for any unauthorized purpose.
-- Distribute, sublicense, or otherwise make the project available to any third party without explicit written permission.
-- Modify, adapt, or create derivative works based on the project.
+4. The Materials may not be used for any commercial purposes without the prior written consent of Chris P
 
 ## No Warranty
 
-This project is provided "as is," without warranty of any kind, express or implied. The creators of this project shall not be liable for any damages, including but not limited to direct, indirect, special, or consequential damages arising out of the use, performance, or handling of this project.
-
-## Termination
-
-This license is effective until terminated. The license will automatically terminate if you fail to comply with any provision herein. Upon termination, you must destroy all copies of the project in your possession.
----
-
-**© 2023. LeChris. All Rights Reserved.**
+The Materials are provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the Materials or the use or other dealings in the Materials.
