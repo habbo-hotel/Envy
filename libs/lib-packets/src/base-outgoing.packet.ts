@@ -1,33 +1,42 @@
-import ByteBuf from 'bytebuffer';
+import {Buffer} from './buffer';
 import {MessagingExternalEvent} from '@envy/lib-client';
 
 export interface OutgoingPacketBase<D> {
-  _buffer: ByteBuf;
-  data: D;
+  _data: D;
   _header: MessagingExternalEvent;
   toBuffer(): Buffer;
+  getRawBuffer(): Buffer;
+  setData(newData: D): void;
+  getData(): D;
 }
 
 export class BaseOutgoingPacket<D> implements OutgoingPacketBase<D> {
-  readonly _buffer: ByteBuf;
-  readonly _header!: MessagingExternalEvent;
+  private _buffer!: Buffer;
 
-  constructor(readonly data: D) {
+  constructor(
+    public _header: MessagingExternalEvent,
+    public _data: D
+  ) {
     console.log(
-      `Outgoing packet #${this._header} ${
-        MessagingExternalEvent[this._header]
-      } with data ${this.data}`
+      `Outgoing packet #${this._header} ${MessagingExternalEvent[this._header]}`
     );
-    this._buffer = new ByteBuf(0);
-    this._buffer.writeShort(this._header);
-  }
-
-  _writeBooleanToBuffer(value: boolean) {
-    // @ts-ignore
-    this._buffer.writeByte(Buffer.from(String.fromCharCode(value)));
+    this._buffer = new Buffer(this._header);
+    this._buffer.writeInt(this._header);
   }
 
   toBuffer(): Buffer {
-    return this._buffer.toBuffer();
+    return this._buffer.getData() as any;
+  }
+
+  getRawBuffer(): Buffer {
+    return this._buffer;
+  }
+
+  setData(newData: D): void {
+    this._data = newData;
+  }
+
+  getData(): D {
+    return this._data;
   }
 }

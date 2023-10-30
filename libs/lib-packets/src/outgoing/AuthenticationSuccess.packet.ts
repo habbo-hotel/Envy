@@ -2,7 +2,9 @@ import {MessagingExternalEvent} from '@envy/lib-client';
 import {BaseOutgoingPacket} from '../base-outgoing.packet';
 
 export class AuthenticationSuccessOutgoingPacket extends BaseOutgoingPacket<AuthenticationSuccessOutgoingPacketData> {
-  readonly _header = MessagingExternalEvent.AUTHENTICATION_SUCCESS;
+  constructor(data: AuthenticationSuccessOutgoingPacketData) {
+    super(MessagingExternalEvent.AUTHENTICATION_SUCCESS, data);
+  }
 }
 
 export interface AuthenticationSuccessOutgoingPacketData {}

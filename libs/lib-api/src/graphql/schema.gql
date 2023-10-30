@@ -2,46 +2,50 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type UserModel {
+type RoleScopesModel {
+  """Bypass all permissions"""
+  isSuperAdmin: Boolean
+}
+
+type RoleModel {
   id: Float
-  email: String
-  isVerified: Boolean
+  name: String
+  description: String
+  scopes: RoleScopesModel
 }
 
 type Query {
-  user(filter: UserFilterByOneInput!): UserModel!
-  users(filter: UserFilterByManyInput): [UserModel!]!
+  role(filter: RoleFilterByOneInput!): RoleModel!
+  roles(filter: RoleFilterByManyInput): [RoleModel!]!
 }
 
-input UserFilterByOneInput {
+input RoleFilterByOneInput {
   id: Float
-  email: String
 }
 
-input UserFilterByManyInput {
+input RoleFilterByManyInput {
   ids: [Float!]
-  emails: [String!]
 }
 
 type Mutation {
-  userCreate(input: UserCreateInput!): UserModel!
-  userUpdate(filter: UserFilterByOneInput!, input: UserUpdateInput!): UserModel!
-  userChangePassword(filter: UserFilterByOneInput!, input: UserChangePasswordInput!): Boolean!
-  userDelete(filter: UserFilterByOneInput!): Boolean!
+  roleCreate(input: RoleCreateInput!): RoleModel!
+  roleUpdate(filter: RoleFilterByOneInput!, input: RoleUpdateInput!): RoleModel!
+  roleDelete(filter: RoleFilterByOneInput!): Boolean!
 }
 
-input UserCreateInput {
-  email: String!
-  password: String!
+input RoleCreateInput {
+  name: String!
+  description: String!
+  scopes: RoleScopesInput!
 }
 
-input UserUpdateInput {
-  email: String
-  password: String
+input RoleScopesInput {
+  profileCreate: Boolean!
+  bypassUserPrivacy: Boolean!
 }
 
-input UserChangePasswordInput {
-  currentPassword: String!
-  newPassword: String!
-  newPasswordAgain: String!
+input RoleUpdateInput {
+  name: String
+  description: String
+  scopes: RoleScopesInput
 }
