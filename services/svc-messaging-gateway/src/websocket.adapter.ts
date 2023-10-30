@@ -67,6 +67,7 @@ export class WebSocketAdapter implements BaseWebSocketAdapter {
       // @ts-ignore
       MessagingInternalEvent[MessagingInternalEvent[header]];
     if (!matchingInternalEvent) {
+      console.log(`UNSUPPORTED PACKET: ${header}`);
       throw new Error(`${header} is not a supported packet`);
     }
     await this.messagingGatewayClient._onMessageReceived({

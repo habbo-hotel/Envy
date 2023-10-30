@@ -12,7 +12,7 @@ import {
 } from '@envy/lib-client';
 
 @Injectable()
-export class FtUserHandshakeService {
+export class FtUserService {
   constructor(
     private readonly loggerService: LoggerService,
     private readonly profileClientService: ProfileClientService,

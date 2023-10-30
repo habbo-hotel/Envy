@@ -6,11 +6,11 @@
       "@envy/app-playground": [
         "apps/app-playground/src"
       ],
-      "@envy/ft-user-handshake": [
-        "features/ft-user-handshake/src"
+      "@envy/ft-user": [
+        "features/ft-user/src"
       ],
-      "@envy/ft-user-information": [
-        "features/ft-user-information/src"
+      "@envy/ft-messenger": [
+        "features/ft-messenger/src"
       ],
       "@envy/lib-api": [
         "libs/lib-api/src"

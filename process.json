@@ -62,8 +62,8 @@
       "args": "run start"
     },
     {
-      "name": "svc-ft-user-handshake",
-      "cwd": "./features/svc-ft-user-handshake",
+      "name": "svc-ft-user",
+      "cwd": "./features/svc-ft-user",
       "script": "pnpm",
       "args": "run web-server:start",
       "watch": [
@@ -73,8 +73,8 @@
       "watch_delay": 1000
     },
     {
-      "name": "svc-ft-user-information",
-      "cwd": "./features/svc-ft-user-information",
+      "name": "svc-ft-messenger",
+      "cwd": "./features/svc-ft-messenger",
       "script": "pnpm",
       "args": "run web-server:start",
       "watch": [
