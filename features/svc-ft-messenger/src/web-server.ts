@@ -1,7 +1,3 @@
-import { config } from 'dotenv';
-import { join } from 'path';
-config({ path: join(__dirname, '..', '.env') });
-
 import { dynamicServiceBootstrap } from '@envy/lib-api';
 import {
   SVC_FT_MESSENGER_INFORMATION_NAME,

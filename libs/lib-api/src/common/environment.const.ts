@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
-import { join } from 'path';
-config({ path: join(__dirname, '..', '.env') });
+import { resolve } from 'path';
+config({ path: resolve(__dirname, '..', '..', '..', '..', '.env') });
 function getEnvironmentValue<T>(key: string): T {
   const value: T = process.env[key] as any;
   if (!value) {

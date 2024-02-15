@@ -1,6 +1,3 @@
-import { config } from 'dotenv';
-import { join } from 'path';
-config({ path: join(__dirname, '..', '.env') });
 import { NestFactory } from '@nestjs/core';
 import { WebSocketAdapter } from './websocket.adapter';
 import { NATS_ADDRESS } from 'libs/lib-client/src/constants';

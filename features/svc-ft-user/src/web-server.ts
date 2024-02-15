@@ -1,6 +1,3 @@
-import { config } from 'dotenv';
-import { join } from 'path';
-config({ path: join(__dirname, '..', '.env') });
 import { dynamicServiceBootstrap } from '@envy/lib-api';
 import {
   SVC_FT_USER_HANDSHAKE_NAME,
