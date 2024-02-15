@@ -11,6 +11,7 @@
     "bytebuffer": "5.0.1"
   },
   "devDependencies": {
+    "@envy/lib-client": "*",
     "@nestjs/common": "*",
     "@nestjs/core": "*",
     "@nestjs/microservices": "*",

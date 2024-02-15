@@ -1,14 +1,16 @@
-import 'dotenv/config';
-import {NestFactory} from '@nestjs/core';
-import {WebSocketAdapter} from './websocket.adapter';
-import {NATS_ADDRESS} from 'libs/lib-client/src/constants';
-import {MessagingGatewayModule} from './messaging-gateway.module';
-import {MicroserviceOptions, Transport} from '@nestjs/microservices';
+import { config } from 'dotenv';
+import { join } from 'path';
+config({ path: join(__dirname, '..', '.env') });
+import { NestFactory } from '@nestjs/core';
+import { WebSocketAdapter } from './websocket.adapter';
+import { NATS_ADDRESS } from 'libs/lib-client/src/constants';
+import { MessagingGatewayModule } from './messaging-gateway.module';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import {
   SVC_MESSAGING_GATEWAY_NAME,
   SVC_MESSAGING_GATEWAY_PORT,
 } from '@envy/lib-client';
-import {LoggerService} from '@envy/lib-api';
+import { LoggerService } from '@envy/lib-api';
 
 async function bootstrap() {
   const app = await NestFactory.create(MessagingGatewayModule);

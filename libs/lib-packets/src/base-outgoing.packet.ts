@@ -1,5 +1,5 @@
-import {Buffer} from './buffer';
-import {MessagingExternalEvent} from '@envy/lib-client';
+import { Buffer } from './buffer';
+import { MessagingExternalEvent } from '@envy/lib-client';
 
 export interface OutgoingPacketBase<D> {
   _data: D;

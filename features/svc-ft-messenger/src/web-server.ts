@@ -1,10 +1,13 @@
-import 'dotenv/config';
-import {dynamicServiceBootstrap} from '@envy/lib-api';
+import { config } from 'dotenv';
+import { join } from 'path';
+config({ path: join(__dirname, '..', '.env') });
+
+import { dynamicServiceBootstrap } from '@envy/lib-api';
 import {
   SVC_FT_MESSENGER_INFORMATION_NAME,
   SVC_FT_MESSENGER_INFORMATION_PORT,
 } from './ft-messenger.const';
-import {FtMessengerInformationModule} from './ft-messenger.module';
+import { FtMessengerInformationModule } from './ft-messenger.module';
 
 dynamicServiceBootstrap(
   SVC_FT_MESSENGER_INFORMATION_NAME,
