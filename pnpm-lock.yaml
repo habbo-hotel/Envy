@@ -86,6 +86,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: 4.1.0
         version: 4.1.0(vite@4.4.9)
+      dotenv:
+        specifier: 16.4.4
+        version: 16.4.4
       vite:
         specifier: 4.4.9
         version: 4.4.9(@types/node@20.8.2)
@@ -293,6 +296,9 @@ importers:
       '@types/lodash':
         specifier: '*'
         version: 0.0.26-alpha
+      dotenv:
+        specifier: '*'
+        version: 16.4.4
       express:
         specifier: '*'
         version: 4.18.2
@@ -393,6 +399,9 @@ importers:
       dataloader:
         specifier: 2.2.2
         version: 2.2.2
+      dotenv:
+        specifier: 16.4.4
+        version: 16.4.4
       express:
         specifier: 4.18.2
         version: 4.18.2
@@ -463,6 +472,9 @@ importers:
       dataloader:
         specifier: 2.2.2
         version: 2.2.2
+      dotenv:
+        specifier: 16.4.4
+        version: 16.4.4
       express:
         specifier: 4.18.2
         version: 4.18.2
@@ -551,6 +563,9 @@ importers:
       dataloader:
         specifier: 2.2.2
         version: 2.2.2
+      dotenv:
+        specifier: 16.4.4
+        version: 16.4.4
       express:
         specifier: 4.18.2
         version: 4.18.2
@@ -630,6 +645,9 @@ importers:
       dataloader:
         specifier: 2.2.2
         version: 2.2.2
+      dotenv:
+        specifier: 16.4.4
+        version: 16.4.4
       express:
         specifier: 4.18.2
         version: 4.18.2
@@ -706,6 +724,9 @@ importers:
       dataloader:
         specifier: 2.2.2
         version: 2.2.2
+      dotenv:
+        specifier: 16.4.4
+        version: 16.4.4
       express:
         specifier: 4.18.2
         version: 4.18.2
@@ -782,6 +803,9 @@ importers:
       dataloader:
         specifier: 2.2.2
         version: 2.2.2
+      dotenv:
+        specifier: 16.4.4
+        version: 16.4.4
       express:
         specifier: 4.18.2
         version: 4.18.2
@@ -7554,13 +7578,13 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /dotenv@16.0.3:
-    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
     engines: {node: '>=12'}
     dev: true
 
-  /dotenv@16.3.1:
-    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+  /dotenv@16.4.4:
+    resolution: {integrity: sha512-XvPXc8XAQThSjAbY6cQ/9PcBXmFoWuw1sQ3b8HqUCR6ziGXjkTi//kB9SWa2UwqlgdAIuRqAa/9hVljzPehbYg==}
     engines: {node: '>=12'}
 
   /dset@3.1.2:
@@ -13450,7 +13474,7 @@ packages:
       chalk: 4.1.2
       cli-highlight: 2.1.11
       debug: 4.3.4
-      dotenv: 16.0.3
+      dotenv: 16.4.4
       glob: 8.1.0
       mkdirp: 2.1.6
       pg: 8.11.3
@@ -13528,7 +13552,7 @@ packages:
       cli-highlight: 2.1.11
       date-fns: 2.30.0
       debug: 4.3.4
-      dotenv: 16.3.1
+      dotenv: 16.4.4
       glob: 8.1.0
       mkdirp: 2.1.6
       reflect-metadata: 0.1.13

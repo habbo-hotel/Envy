@@ -31,7 +31,8 @@
     "@types/express": "*",
     "@envy/lib-client": "workspace:*",
     "rxjs": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "dotenv": "*"
   },
   "peerDependencies": {
     "@nestjs/common": "*",
@@ -46,6 +47,7 @@
     "@envy/lib-client": "workspace:*",
     "rxjs": "*",
     "spdy": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "dotenv": "*"
   }
 }
