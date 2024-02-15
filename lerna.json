@@ -1,0 +1,10 @@
+{
+  "packages": [
+    "apps/*",
+    "features/**/*",
+    "libs/**/*",
+    "services/**/*"
+  ],
+  "version": "independent",
+  "npmClient": "pnpm"
+}

@@ -1,0 +1,2 @@
+export const SVC_FT_MESSENGER_INFORMATION_NAME = 'FtUserInformation';
+export const SVC_FT_MESSENGER_INFORMATION_PORT = 4001;

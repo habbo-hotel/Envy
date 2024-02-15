@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ProfileModel {
+  id: Float!
+}
+
+type UserModel {
+  id: Float!
+}
+
+type SessionModel {
+  id: Float
+  userID: Float
+  profileID: Float
+  profile: ProfileModel
+  user: UserModel
+}
+
+type Query {
+  me: SessionModel
+  session(filter: SessionFilterByOneInput!): SessionModel!
+  sessions(filter: SessionFilterByManyInput): [SessionModel!]!
+}
+
+input SessionFilterByOneInput {
+  id: Float
+}
+
+input SessionFilterByManyInput {
+  ids: [Float!]
+  userIDs: [Float!]
+}
+
+type Mutation {
+  sessionChangeProfile(input: SessionChangeProfileInput!): String
+  sessionCreate(input: SessionCreateInput!): String!
+  sessionDelete(filter: SessionFilterByOneInput!): Boolean!
+}
+
+input SessionChangeProfileInput {
+  profileID: Float!
+}
+
+input SessionCreateInput {
+  email: String!
+  password: String!
+  profileID: Float
+}

@@ -1,0 +1,8 @@
+{
+  "name": "envy/ssl",
+  "version": "0.0.1",
+  "scripts": {
+    "pre:generate": "mkcert -install",
+    "generate": "mkcert -key-file key.pem -cert-file cert.pem xray.dev localhost"
+  }
+}

@@ -1,0 +1,19 @@
+html,
+body,
+#root,
+.graphiql-container {
+  min-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background: black;
+  box-sizing: border-box;
+  font-family: Maven Pro !important;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

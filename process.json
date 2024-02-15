@@ -1,0 +1,87 @@
+{
+  "apps": [
+    {
+      "name": "svc-messaging-gateway",
+      "cwd": "./services/svc-messaging-gateway",
+      "script": "pnpm",
+      "args": "run web-server:start",
+      "watch": [
+        "src",
+        "../**/src",
+        "../libs/**/src"
+      ],
+      "watch_delay": 1000
+    },
+    {
+      "name": "svc-profile",
+      "cwd": "./services/svc-profile",
+      "script": "pnpm",
+      "args": "run web-server:start",
+      "watch": [
+        "src",
+        "../libs/**/src"
+      ],
+      "watch_delay": 1000
+    },
+    {
+      "name": "svc-role",
+      "cwd": "./services/svc-role",
+      "script": "pnpm",
+      "args": "run web-server:start",
+      "watch": [
+        "src",
+        "../libs/**/src"
+      ],
+      "watch_delay": 1000
+    },
+    {
+      "name": "svc-session",
+      "cwd": "./services/svc-session",
+      "script": "pnpm",
+      "args": "run web-server:start",
+      "watch": [
+        "src",
+        "../libs/**/src"
+      ]
+    },
+    {
+      "name": "svc-user",
+      "cwd": "./services/svc-user",
+      "script": "pnpm",
+      "args": "run web-server:start",
+      "watch": [
+        "src",
+        "../libs/**/src"
+      ],
+      "watch_delay": 1000
+    },
+    {
+      "name": "app-playground",
+      "cwd": "./apps/app-playground",
+      "script": "pnpm",
+      "args": "run start"
+    },
+    {
+      "name": "svc-ft-user",
+      "cwd": "./features/svc-ft-user",
+      "script": "pnpm",
+      "args": "run web-server:start",
+      "watch": [
+        "src",
+        "../libs/**/src"
+      ],
+      "watch_delay": 1000
+    },
+    {
+      "name": "svc-ft-messenger",
+      "cwd": "./features/svc-ft-messenger",
+      "script": "pnpm",
+      "args": "run web-server:start",
+      "watch": [
+        "src",
+        "../libs/**/src"
+      ],
+      "watch_delay": 1000
+    }
+  ]
+}

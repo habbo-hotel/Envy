@@ -1,0 +1,51 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@envy/app-playground": [
+        "apps/app-playground/src"
+      ],
+      "@envy/ft-user": [
+        "features/ft-user/src"
+      ],
+      "@envy/ft-messenger": [
+        "features/ft-messenger/src"
+      ],
+      "@envy/lib-api": [
+        "libs/lib-api/src"
+      ],
+      "@envy/lib-client": [
+        "libs/lib-client/src"
+      ],
+      "@envy/lib-packets": [
+        "libs/lib-packets/src"
+      ],
+      "@envy/svc-graphql-gateway": [
+        "svc/svc-graphql-gateway/src"
+      ],
+      "@envy/svc-messaging-gateway": [
+        "svc/svc-messaging-gateway/src"
+      ],
+      "@envy/svc-profile": [
+        "services/svc-profile/src"
+      ],
+      "@envy/svc-role": [
+        "services/svc-role/src"
+      ],
+      "@envy/svc-session": [
+        "services/svc-session/src"
+      ],
+      "@envy/svc-user": [
+        "services/svc-user/src"
+      ]
+    },
+    "noEmit": true
+  },
+  "include": [
+    "apps",
+    "features",
+    "libs",
+    "services"
+  ]
+}

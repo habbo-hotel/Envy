@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "src/",
+    "../../proto/",
+    "../../libs/envy-lib-api/src",
+    "../../libs/envy-lib-client/src"
+  ],
+  "ext": "ts"
+}
